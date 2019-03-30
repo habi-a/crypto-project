@@ -22,22 +22,33 @@ function printChoices() {
 function main() {
     printTitle();
 
-    while (true) {
+    $exitProgram = false;
+    while (!$exitProgram) {
         printChoices();
         $entry = readline("choix: ");
 
-        if ($entry == "1")
+        switch ($entry) {
+        case "1":
             generatePublicKey();
-        else if ($entry == "2")
-            encrypt();
-        else if ($entry == "3")
-            decrypt();
-        else if ($entry == "4")
-            encrypt_cesar();
-        else if ($entry == "5")
-            decrypt_cesar();
-        else if ($entry == "6")
             break;
+        case "2":
+            encrypt();
+            break;
+        case "3":
+            decrypt();
+            break;
+        case "4":
+            encrypt_cesar();
+            break;
+        case "5":
+            decrypt_cesar();
+            break;
+        case "6":
+            $exitProgram = true;
+            break;
+        default:
+            break;
+        }
     }
 }
 
